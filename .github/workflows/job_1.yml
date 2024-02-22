@@ -1,0 +1,19 @@
+name: Add Job
+ 
+on:
+  push:
+    branches:
+      - main
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Generate data
+        run: echo "Data to be shared" > shared-data.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: shared-data
+          path: shared-data.txt
